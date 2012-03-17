@@ -1,0 +1,83 @@
+﻿<Window x:Class="Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/Launcher;component/Data/Icon/robot.ico" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        ResizeMode="NoResize" d:DesignHeight="346" d:DesignWidth="460" SizeToContent="WidthAndHeight" KeyDown="Window_KeyDown">
+    <Grid Margin="10">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="White" Offset="0.207" />
+                <GradientStop Color="GhostWhite" Offset="1" />
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+            <Image Name="image1" Stretch="Fill" Source="/Launcher;component/Images/220px-Robot_icon.svg.png" />
+            <TextBlock HorizontalAlignment="Center"  Name="textBlock1" Text="Soltys Programmer Bot" VerticalAlignment="Center" FontFamily="Consolas" TextAlignment="Center" FontSize="32" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            
+            <GroupBox Header="Screen">
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+                    <GroupBox Header="Resolution"   Name="ResolutionBox" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Grid>
+                            <ComboBox  HorizontalAlignment="Left" Name="ResolutionComboBox" VerticalAlignment="Top" Width="150" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Aspect Ratio"  Name="AspectRatioBox" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid>
+                            <ComboBox Name="AspectRatio" SelectionChanged="AspectRatio_SelectionChanged">
+                                <ComboBoxItem>4:3</ComboBoxItem>
+                                <ComboBoxItem>16:9</ComboBoxItem>
+                                <ComboBoxItem>16:10</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Mode" HorizontalAlignment="Left" Name="groupBox1" VerticalAlignment="Center" Width="150" >
+
+                        <StackPanel>
+                            <RadioButton Content="Windowed" Height="16" HorizontalAlignment="Left"  Name="WindowedRadioButton" VerticalAlignment="Top"  IsChecked="True"/>
+                            <RadioButton Content="Full Screen" Height="16" HorizontalAlignment="Left"  Name="FullScreenRadioButton" VerticalAlignment="Top" />
+                        </StackPanel>
+                    </GroupBox>
+
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Effects" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox Header="Sampling" VerticalAlignment="Center" Margin="0,0,10,0">
+                        <StackPanel>
+                            <RadioButton Content="2" HorizontalAlignment="Left"  VerticalAlignment="Center"  IsChecked="True"/>
+                            <RadioButton Content="4" HorizontalAlignment="Left"   VerticalAlignment="Center" />
+                        </StackPanel>
+                    </GroupBox>
+                    <StackPanel>
+                        <GroupBox Header="Shaders" IsEnabled="{Binding ElementName=UseShaders, Path=IsChecked}">
+                            <StackPanel>
+                                <CheckBox Name="UseShaders" Content="Use Shaders" IsChecked="True"/>
+                                <StackPanel Margin="20,0,0,0">
+                                    <CheckBox Content="Fractal Backgound" IsChecked="True" />
+                                    <CheckBox Content="Lighting Shaders" IsChecked="True" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <DockPanel  Grid.Row="2" LastChildFill="True">
+            <Button Content="Download game" Name="DownloadButton" IsEnabled="False" HorizontalAlignment="Right" DockPanel.Dock="Left" />
+            <Button Content="Cancel"  Name="CencelButton"  Click="CencelButton_Click" HorizontalAlignment="Right"  />
+            <Button Content="Run game"  Name="RunGameButton" FontWeight="Bold" Click="RunGameButton_Click" />
+        </DockPanel>
+    </Grid>
+</Window>

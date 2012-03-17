@@ -1,0 +1,1327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Good, Noise" NewOnly="False" />
+   <Report Status="Active, Good, Noise" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="pl-PL" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/bin_debug/Core.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/bin_debug/Game.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/bin_debug/OpenGLEngine.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Targets>
+   <Target Name="$(ProjectDir)/bin_debug/Core.dll">
+    <Modules>
+     <Module Name="core.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2011-12-31 12:29:20Z">
+        <Issue Name="NoStrongName">
+         <Item>'Core.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2011-12-31 12:29:20Z">
+        <Issue>
+         <Item>'Core.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Soltys.ProgrammerBot.Core">
+        <Types>
+         <Type Name="Command">
+          <Members>
+           <Member Name="#gameHandler">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'Command.gameHandler'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsNOP()">
+            <Messages>
+             <Message Id="NOP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>NOP</Item>
+               <Item>'Command.IsNOP()'</Item>
+               <Item>Nop</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CommandBar">
+          <Members>
+           <Member Name="#GrabIcon(System.Drawing.Point)">
+            <Messages>
+             <Message Id="p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'CommandBar.GrabIcon(Point)'</Item>
+               <Item>'p'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GrabIcon(System.Object,Soltys.ProgrammerBot.Core.IconGrabEventArgs)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'CommandBar.GrabIcon(object, IconGrabEventArgs)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CommandFactory">
+          <Members>
+           <Member Name="#NOPCommand">
+            <Messages>
+             <Message Id="NOP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>NOP</Item>
+               <Item>'CommandFactory.NOPCommand'</Item>
+               <Item>Nop</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CommandHolder">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'CommandHolder'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#defaultEmptyIcon">
+            <Messages>
+             <Message Id="default" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>default</Item>
+               <Item>'CommandHolder.defaultEmptyIcon'</Item>
+               <Item>Default</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GrabIcon(System.Drawing.Point)">
+            <Messages>
+             <Message Id="p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'CommandHolder.GrabIcon(Point)'</Item>
+               <Item>'p'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GrabIcon(System.Object,Soltys.ProgrammerBot.Core.IconGrabEventArgs)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'CommandHolder.GrabIcon(object, IconGrabEventArgs)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CommandList">
+          <Members>
+           <Member Name="#OnLogicUpdate(Soltys.ProgrammerBot.Core.GameTime)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'CommandList.OnLogicUpdate(GameTime)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CommandView">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'CommandView'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#iconFactory">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'CommandView.iconFactory'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#iconList">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'CommandView.iconList'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'List&lt;HudIcon&gt;'</Item>
+               <Item>'CommandView.iconList'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Game">
+          <Members>
+           <Member Name="#HUD">
+            <Messages>
+             <Message Id="HUD" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>HUD</Item>
+               <Item>'Game.HUD'</Item>
+               <Item>Hud</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnLogicUpdate(Soltys.ProgrammerBot.Core.GameTime)">
+            <Messages>
+             <Message Id="gameTime" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2011-12-31 12:32:11Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'gameTime'</Item>
+               <Item>'Game.OnLogicUpdate(GameTime)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#renderFactory">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Game.renderFactory'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LogicUpdate" Kind="Event">
+            <Messages>
+             <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Created="2011-12-31 12:29:20Z">
+              <Issue Name="First">
+               <Item>'Game.LogicUpdateEventHandler'</Item>
+              </Issue>
+              <Issue Name="Second">
+               <Item>'Game.LogicUpdateEventHandler'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Game+LogicUpdateEventHandler">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'Game.LogicUpdateEventHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="GameObject">
+          <Members>
+           <Member Name="#gameHandler">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'GameObject.gameHandler'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Hud">
+          <Members>
+           <Member Name="#iconFactory">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Hud.iconFactory'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnIconGrab(Soltys.ProgrammerBot.Core.IconGrabEventArgs)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'Hud.OnIconGrab(IconGrabEventArgs)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IconGrab" Kind="Event">
+            <Messages>
+             <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Created="2011-12-31 12:29:20Z">
+              <Issue Name="Second">
+               <Item>'Hud.IconGrabHandler'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Hud+IconGrabHandler">
+          <Messages>
+           <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+            <Issue Name="DelegateParameterMoreMeaningfulName">
+             <Item>'Hud.IconGrabHandler'</Item>
+             <Item>'e'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'Hud.IconGrabHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Hud+IconReleasedHandler">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'Hud.IconReleasedHandler'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="UseGenericEventHandlerInstances" Category="Microsoft.Design" CheckId="CA1003" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'Hud.IconReleasedHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HudIcon">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'HudIcon'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="IdentifiersShouldDifferByMoreThanCase" Category="Microsoft.Naming" CheckId="CA1708" Created="2011-12-31 12:32:11Z">
+            <Issue Name="Member">
+             <Item>'drawPoint'</Item>
+             <Item>DrawPoint</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#boxSize">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'HudIcon.boxSize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Contains(System.Drawing.Point)">
+            <Messages>
+             <Message Id="p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'HudIcon.Contains(Point)'</Item>
+               <Item>'p'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#drawPoint">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'HudIcon.drawPoint'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SetPostion(System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="x" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'HudIcon.SetPostion(int, int)'</Item>
+               <Item>'x'</Item>
+              </Issue>
+             </Message>
+             <Message Id="y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'HudIcon.SetPostion(int, int)'</Item>
+               <Item>'y'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HudObject">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'HudObject'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#hudHandler">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'HudObject.hudHandler'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ICommandBarRenderer">
+          <Messages>
+           <Message TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'ICommandBarRenderer'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ICommandFunctionRenderer">
+          <Messages>
+           <Message TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'ICommandFunctionRenderer'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ICommandMainProgramRenderer">
+          <Messages>
+           <Message TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'ICommandMainProgramRenderer'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="IHudIconRenderer">
+          <Messages>
+           <Message TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040" Created="2011-12-31 12:29:20Z">
+            <Issue>
+             <Item>'IHudIconRenderer'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Level">
+          <Members>
+           <Member Name="#Floor">
+            <Messages>
+             <Message Id="Member" TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Level.Floor'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Level.Floor'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetTileInFrontOfRobot()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2011-12-31 12:29:20Z">
+              <Issue Certainty="50">
+               <Item>'Level.GetTileInFrontOfRobot()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#rotateTime">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Level.rotateTime'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LevelManager">
+          <Members>
+           <Member Name="#CurrentLevel">
+            <Messages>
+             <Message Id="Member" TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'LevelManager.CurrentLevel'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'LevelManager.CurrentLevel'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.String)">
+            <Messages>
+             <Message Id="Body" TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Body">
+               <Item>'LevelManager.Load(string)'</Item>
+               <Item>'Tile[,]'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Return" TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Return">
+               <Item>'LevelManager.Load(string)'</Item>
+               <Item>'Tile[,]'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#parseLevelHeader(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelManager.parseLevelHeader(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#parseTileLine(System.String[],System.Int32&amp;,System.Int32&amp;,Soltys.ProgrammerBot.Core.TileType&amp;,Soltys.ProgrammerBot.Core.TileHeight&amp;)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelManager.parseTileLine(string[], out int, out int, out TileType, out TileHeight)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.String,Soltys.ProgrammerBot.Core.Tile[,],System.Int32)">
+            <Messages>
+             <Message Id="1#" TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'floor'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#splitTileInfoLine(System.Int32,System.Int32,System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelManager.splitTileInfoLine(int, int, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RealCommandFactory">
+          <Members>
+           <Member Name="#Instance">
+            <Messages>
+             <Message TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'RealCommandFactory.Instance'</Item>
+               <Item>'CommandFactory'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Robot">
+          <Members>
+           <Member Name="#.ctor(Soltys.ProgrammerBot.Core.Game,Soltys.ProgrammerBot.Core.IRobotRenderer)">
+            <Messages>
+             <Message Id="g" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'Robot.Robot(Game, IRobotRenderer)'</Item>
+               <Item>'g'</Item>
+              </Issue>
+             </Message>
+             <Message Id="r" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'Robot.Robot(Game, IRobotRenderer)'</Item>
+               <Item>'r'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#moveTime">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Robot.moveTime'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnLogicUpdate(Soltys.ProgrammerBot.Core.GameTime)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'Robot.OnLogicUpdate(GameTime)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Tile">
+          <Members>
+           <Member Name="#Type">
+            <Messages>
+             <Message TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721" Created="2011-12-31 12:32:11Z">
+              <Issue Name="BaseType">
+               <Item>'Tile.Type'</Item>
+               <Item>'object.GetType()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/bin_debug/Game.exe">
+    <Modules>
+     <Module Name="game.exe">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2011-12-31 12:29:20Z">
+        <Issue Name="NoStrongName">
+         <Item>'Game.exe'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Soltys.ProgrammerBot">
+        <Types>
+         <Type Name="FractalBackground">
+          <Members>
+           <Member Name="#drawPolygonForFractal()">
+            <Messages>
+             <Message Id="draw" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>draw</Item>
+               <Item>'FractalBackground.drawPolygonForFractal()'</Item>
+               <Item>Draw</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'FractalBackground.drawPolygonForFractal()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FragmentShaderObject">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'FractalBackground.FragmentShaderObject'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#linkShadersIntoProgram()">
+            <Messages>
+             <Message Id="link" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>link</Item>
+               <Item>'FractalBackground.linkShadersIntoProgram()'</Item>
+               <Item>Link</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#loadFractalTexture(System.String)">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'FractalBackground.loadFractalTexture(string)'</Item>
+               <Item>'Bitmap.LockBits(Rectangle, ImageLockMode, PixelFormat)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'FractalBackground.loadFractalTexture(string)'&#xD;&#xA;   -&gt;'FractalBackground.loadFractalTexture(string)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'FractalBackground.loadFractalTexture(string)'</Item>
+               <Item>'Bitmap.UnlockBits(BitmapData)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'FractalBackground.loadFractalTexture(string)'&#xD;&#xA;   -&gt;'FractalBackground.loadFractalTexture(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="load" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="Member">
+               <Item>load</Item>
+               <Item>'FractalBackground.loadFractalTexture(string)'</Item>
+               <Item>Load</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProgramObject">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'FractalBackground.ProgramObject'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TextureObject">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'FractalBackground.TextureObject'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#VertexShaderObject">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'FractalBackground.VertexShaderObject'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="JuliaFractalBackground">
+          <Members>
+           <Member Name="#OnLoad(System.Object,System.EventArgs)">
+            <Messages>
+             <Message TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123" Created="2011-12-31 12:32:11Z">
+              <Issue Name="OverrideOnly">
+               <Item>'JuliaFractalBackground.OnLoad(object, EventArgs)'</Item>
+               <Item>'FractalBackground.OnLoad(object, EventArgs)'</Item>
+               <Item>[PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust")]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MandelbrotFractalBackground">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2011-12-31 12:32:11Z">
+            <Issue>
+             <Item>'MandelbrotFractalBackground'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#loadShaders()">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2011-12-31 12:32:11Z">
+              <Issue Name="TooGeneric">
+               <Item>'MandelbrotFractalBackground.loadShaders()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Menu">
+          <Members>
+           <Member Name="#tearDown()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'Menu.tearDown()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ProgrammerBotWindow">
+          <Members>
+           <Member Name="#enable()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'ProgrammerBotWindow.enable()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#keyboardAction(OpenTK.FrameEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ProgrammerBotWindow.keyboardAction(FrameEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnMouseDown(System.Object,OpenTK.Input.MouseButtonEventArgs)">
+            <Messages>
+             <Message Id="icon" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ProgrammerBotWindow.OnMouseDown(object, MouseButtonEventArgs)'</Item>
+               <Item>'icon'</Item>
+               <Item>'HudIcon'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnMouseMove(System.Object,OpenTK.Input.MouseMoveEventArgs)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2011-12-31 12:29:20Z">
+              <Issue>
+               <Item>'e'</Item>
+               <Item>'ProgrammerBotWindow.OnMouseMove(object, MouseMoveEventArgs)'</Item>
+               <Item>'MouseMoveEventArgs'</Item>
+               <Item>'MouseEventArgs'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OnRender(System.Object,OpenTK.FrameEventArgs)">
+            <Messages>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2011-12-31 12:32:11Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'int.ToString()'</Item>
+               <Item>'ProgrammerBotWindow.OnRender(object, FrameEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StandardLighting">
+          <Members>
+           <Member Name="#enableLights()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'StandardLighting.enableLights()'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'StandardLighting.enableLights()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#setLightColor(OpenTK.Graphics.OpenGL.LightName,System.Single[],System.Single[],System.Single[])">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'StandardLighting.setLightColor(LightName, float[], float[], float[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/bin_debug/OpenGLEngine.dll">
+    <Modules>
+     <Module Name="openglengine.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2011-12-31 12:29:20Z">
+        <Issue Name="NoStrongName">
+         <Item>'OpenGLEngine.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2011-12-31 12:29:20Z">
+        <Issue>
+         <Item>'OpenGLEngine.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Soltys.ProgrammerBot.OpenGLEngine">
+        <Types>
+         <Type Name="HudIconOpenGL">
+          <Members>
+           <Member Name="#Draw()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'HudIconOpenGL.Draw()'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'HudIconOpenGL.Draw()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HudRenderer">
+          <Members>
+           <Member Name="#setUp(System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'HudRenderer.setUp(int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#tearDown()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'HudRenderer.tearDown()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LabelBox">
+          <Members>
+           <Member Name="#.ctor(System.Int32,System.Int32,System.Drawing.RectangleF)">
+            <Messages>
+             <Message Id="Hud" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2011-12-31 12:32:11Z">
+              <Issue Name="MemberParameter">
+               <Item>'LabelBox.LabelBox(int, int, RectangleF)'</Item>
+               <Item>Hud</Item>
+               <Item>'HudHeight'</Item>
+               <Item>hud</Item>
+              </Issue>
+              <Issue Name="MemberParameter">
+               <Item>'LabelBox.LabelBox(int, int, RectangleF)'</Item>
+               <Item>Hud</Item>
+               <Item>'HudWidth'</Item>
+               <Item>hud</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#HudHeight">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'LabelBox.HudHeight'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#HudWidth">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'LabelBox.HudWidth'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LevelRenderer">
+          <Members>
+           <Member Name="#calculateAngle(System.Double,System.Double,System.Double)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelRenderer.calculateAngle(double, double, double)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#drawBox(Soltys.ProgrammerBot.Core.Tile)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelRenderer.drawBox(Tile)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#getTileDrawColor(Soltys.ProgrammerBot.Core.Tile)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'LevelRenderer.getTileDrawColor(Tile)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Render(Soltys.ProgrammerBot.Core.Level)">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'LevelRenderer.Render(Level)'</Item>
+               <Item>'level'</Item>
+               <Item>'obj'</Item>
+               <Item>'IRenderer&lt;Level&gt;.Render(Level)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ObjMesh">
+          <Members>
+           <Member Name="#Prepare()">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ObjMesh.Prepare()'</Item>
+               <Item>'Marshal.SizeOf(Type)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'ObjMesh.Prepare()'&#xD;&#xA;   -&gt;'ObjMesh.Prepare()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Quads">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ObjMesh.Quads'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Render()">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ObjMesh.Render()'</Item>
+               <Item>'Marshal.SizeOf(Type)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'ObjMesh.Render()'&#xD;&#xA;   -&gt;'ObjMesh.Render()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Triangles">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ObjMesh.Triangles'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Vertices">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'ObjMesh.Vertices'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ObjQuad">
+          <Messages>
+           <Message TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815" Created="2011-12-31 12:32:11Z">
+            <Issue Name="Equals">
+             <Item>'ObjQuad'</Item>
+            </Issue>
+            <Issue Name="op_Equality">
+             <Item>'ObjQuad'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ObjTriangle">
+          <Messages>
+           <Message TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815" Created="2011-12-31 12:32:11Z">
+            <Issue Name="Equals">
+             <Item>'ObjTriangle'</Item>
+            </Issue>
+            <Issue Name="op_Equality">
+             <Item>'ObjTriangle'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ObjVertex">
+          <Messages>
+           <Message TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815" Created="2011-12-31 12:32:11Z">
+            <Issue Name="Equals">
+             <Item>'ObjVertex'</Item>
+            </Issue>
+            <Issue Name="op_Equality">
+             <Item>'ObjVertex'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="OpenGLRendererFactory">
+          <Members>
+           <Member Name="#Soltys.ProgrammerBot.Core.IRendererFactory.FunctionOneRenderer">
+            <Accessors>
+             <Accessor Name="#Soltys.ProgrammerBot.Core.IRendererFactory.get_FunctionOneRenderer()">
+              <Messages>
+               <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2011-12-31 12:29:20Z">
+                <Issue>
+                 <Item>'OpenGLRendererFactory'</Item>
+                 <Item>'IRendererFactory.FunctionOneRenderer.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Soltys.ProgrammerBot.Core.IRendererFactory.FunctionTwoRenderer">
+            <Accessors>
+             <Accessor Name="#Soltys.ProgrammerBot.Core.IRendererFactory.get_FunctionTwoRenderer()">
+              <Messages>
+               <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2011-12-31 12:29:20Z">
+                <Issue>
+                 <Item>'OpenGLRendererFactory'</Item>
+                 <Item>'IRendererFactory.FunctionTwoRenderer.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RobotRenderer">
+          <Members>
+           <Member Name="#calculatePosition(System.Double,System.Double,System.Double)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'RobotRenderer.calculatePosition(double, double, double)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#setMaterials()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-12-31 12:32:11Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'RobotRenderer.setMaterials()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="TextRenderer">
+          <Members>
+           <Member Name="#Texture">
+            <Accessors>
+             <Accessor Name="#get_Texture()">
+              <Messages>
+               <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2011-12-31 12:32:11Z">
+                <Issue>
+                 <Item>'TextRenderer.Texture.get()'</Item>
+                 <Item>'TextRenderer.uploadBitmap()'</Item>
+                 <Item>&#xD;&#xA;   -&gt;'TextRenderer.Texture.get()'&#xD;&#xA;   -&gt;'TextRenderer.Texture.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Texture2D">
+          <Members>
+           <Member Name="#load()">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2011-12-31 12:32:11Z">
+              <Issue>
+               <Item>'Texture2D.load()'</Item>
+               <Item>'Bitmap.LockBits(Rectangle, ImageLockMode, PixelFormat)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'Texture2D.load()'&#xD;&#xA;   -&gt;'Texture2D.load()'&#xD;&#xA;   -&gt;'Texture2D.Texture2D(string)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'Texture2D.load()'</Item>
+               <Item>'Bitmap.UnlockBits(BitmapData)'</Item>
+               <Item>&#xD;&#xA;   -&gt;'Texture2D.load()'&#xD;&#xA;   -&gt;'Texture2D.load()'&#xD;&#xA;   -&gt;'Texture2D.Texture2D(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="TextureManager">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2011-12-31 12:32:11Z">
+            <Issue>
+             <Item>'TextureManager'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012">
+    <Resolution Name="Default">Change the accessibility of all public constructors in {0} to protected.</Resolution>
+   </Rule>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040">
+    <Resolution Name="Default">Define a custom attribute to replace {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   </Rule>
+   <Rule TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009">
+    <Resolution Name="First">Declare the first parameter of {0} as an object named 'sender'.</Resolution>
+    <Resolution Name="Second">Declare the second parameter of {0} as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104">
+    <Resolution Name="Default">Remove the read-only designation from {0} or change the field to one that is an immutable reference type. If the reference type {1} is, in fact, immutable, exclude this message.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+    <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122">
+    <Resolution Name="Default">{0} calls into {1} which has a LinkDemand. By making this call, {1} is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: {2}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="DelegateParameterMoreMeaningfulName">In delegate {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
+    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldDifferByMoreThanCase" Category="Microsoft.Naming" CheckId="CA1708">
+    <Resolution Name="Member">Change member names {0} and '{1}' so that they differ by more than case.</Resolution>
+   </Rule>
+   <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+    <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034">
+    <Resolution Name="Default">Do not nest type {0}. Alternatively, change its accessibility so that it is not externally visible.</Resolution>
+   </Rule>
+   <Rule TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815">
+    <Resolution Name="Equals">{0} should override Equals.</Resolution>
+    <Resolution Name="op_Equality">{0} should override the equality (==) and inequality (!=) operators.</Resolution>
+   </Rule>
+   <Rule TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123">
+    <Resolution Name="OverrideOnly">Override {0} has the following LinkDemand that is not present on base method {1}: {2}. If possible, apply the same LinkDemand to the base method. Otherwise, replace it with a full Demand or remove it entirely.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
+    <Resolution Name="Default">In member {0}, change parameter name {1} to {2} in order to match the identifier as it has been declared in {3}.</Resolution>
+   </Rule>
+   <Rule TypeName="PreferJaggedArraysOverMultidimensional" Category="Microsoft.Performance" CheckId="CA1814">
+    <Resolution Name="Body">{0} uses a multidimensional array of {1}. Replace it with a jagged array if possible.</Resolution>
+    <Resolution Name="Default">{0} is a multidimensional array. Replace it with a jagged array if possible.</Resolution>
+    <Resolution Name="Return">{0} returns a multidimensional array of {1}. Replace it with a jagged array if possible.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721">
+    <Resolution Name="BaseType">The property name {0} is confusing given the existence of inherited method {1}. Rename or remove this property.</Resolution>
+   </Rule>
+   <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+    <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   </Rule>
+   <Rule TypeName="UseGenericEventHandlerInstances" Category="Microsoft.Design" CheckId="CA1003">
+    <Resolution Name="Default">Remove {0} and replace its usage with EventHandler&lt;T&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

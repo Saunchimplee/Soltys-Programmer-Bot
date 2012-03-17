@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A61EB93E-BAD0-4E86-92FF-3AC0188F3D9F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Soltys.ProgrammerBot.OpenGLEngine</RootNamespace>
+    <AssemblyName>OpenGLEngine</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin_debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\deps\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\deps\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\deps\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tao.FreeGlut">
+      <HintPath>..\deps\Tao.FreeGlut.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandBarRenderer.cs" />
+    <Compile Include="CommandMainProgramRenderer.cs" />
+    <Compile Include="EmptyFunctionOneIcon.cs" />
+    <Compile Include="EmptyFunctionTwoIcon.cs" />
+    <Compile Include="EmptyIcon.cs" />
+    <Compile Include="FunctionOneIcon.cs" />
+    <Compile Include="FunctionOneRenderer.cs" />
+    <Compile Include="FunctionTwoIcon.cs" />
+    <Compile Include="FunctionTwoRenderer.cs" />
+    <Compile Include="GameRenderer.cs" />
+    <Compile Include="HudIconOpenGL.cs" />
+    <Compile Include="HudIconFactory.cs" />
+    <Compile Include="HudRenderer.cs" />
+    <Compile Include="JumpIcon.cs" />
+    <Compile Include="LabelBox.cs" />
+    <Compile Include="LevelRenderer.cs" />
+    <Compile Include="LightIcon.cs" />
+    <Compile Include="LockIcon.cs" />
+    <Compile Include="ObjMesh.cs" />
+    <Compile Include="ObjMeshLoader.cs" />
+    <Compile Include="OpenGLRenderer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RobotRenderer.cs" />
+    <Compile Include="TextRenderer.cs" />
+    <Compile Include="Texture2D.cs" />
+    <Compile Include="TextureManager.cs" />
+    <Compile Include="TurnLeftIcon.cs" />
+    <Compile Include="TurnRightIcon.cs" />
+    <Compile Include="UpIcon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{45651A05-5B77-4ECF-887C-5A5D4B03436F}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Icon\220px-Robot_icon.svg.png" />
+    <Content Include="Data\Textures\empty.bmp" />
+    <Content Include="Data\Textures\empty_fun1.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Textures\empty_fun2.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Textures\fun1.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Textures\fun2.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Textures\JuliaColorTable.bmp" />
+    <Content Include="Data\Textures\JuliaColorTable_16_1.bmp" />
+    <Content Include="Data\Textures\JuliaColorTable_32_1.bmp" />
+    <Content Include="Data\Textures\jump.bmp" />
+    <Content Include="Data\Textures\lightbulb.bmp" />
+    <Content Include="Data\Textures\lightBulb.png" />
+    <Content Include="Data\Textures\lock.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Textures\logo.jpg" />
+    <Content Include="Data\Textures\Turn.png" />
+    <Content Include="Data\Textures\turn_left.bmp" />
+    <Content Include="Data\Textures\turn_right.bmp" />
+    <Content Include="Data\Textures\up_arrow.bmp" />
+    <Content Include="Data\Textures\Up_Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Models\bunny.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Models\dragon.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Models\feline.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\JuliaSet_SM2_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\JuliaSet_SM2_FS_16_1.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\JuliaSet_SM3_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\JuliaSet_SM3_FS_16_1.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\JuliaSet_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\lighting_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Shaders\lighting_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
